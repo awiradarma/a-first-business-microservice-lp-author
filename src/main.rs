@@ -33,6 +33,7 @@ async fn handle_request(req: Request<Body>) -> Result<Response<Body>, anyhow::Er
             if found {
                 Ok(Response::new(Body::from(rate)))
             } else {
+                // Add a comment to trigger a change.
                 let mut not_found = Response::default();
                 *not_found.status_mut() = StatusCode::NOT_FOUND;
                 Ok(not_found)
